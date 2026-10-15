@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TMLE Automations | AI Automations for Nanaimo Small Businesses</title>
+<meta name="description" content="TMLE Automations helps Nanaimo small businesses automate repetitive tasks with AI, empowering your team instead of replacing it.">
+<style>
+  :root { --navy:#0b1f3a; --blue:#1d4ed8; --blue-dark:#1e3a8a; --text:#1f2937; --muted:#6b7280; --line:#e5e7eb; --bg:#f8fafc; --white:#fff; --radius:10px; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif; color:var(--text); background:var(--bg); line-height:1.6; -webkit-font-smoothing:antialiased; }
+
+  header { background:var(--navy); color:var(--white); padding:28px 24px; }
+  .header-inner { max-width:960px; margin:0 auto; }
+  .logo { font-size:1.5rem; font-weight:700; letter-spacing:-.02em; }
+  .logo span { color:#60a5fa; font-weight:500; }
+  .tagline { margin-top:4px; font-size:.95rem; color:#cbd5e1; }
+
+  .intro { max-width:760px; margin:0 auto; padding:72px 24px 40px; text-align:center; }
+  .intro h1 { font-size:clamp(1.8rem,4vw,2.5rem); line-height:1.2; color:var(--navy); letter-spacing:-.02em; margin-bottom:20px; }
+  .intro p { font-size:1.1rem; color:var(--muted); margin-bottom:14px; }
+  .intro p strong { color:var(--navy); font-weight:600; }
+  .pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:36px; text-align:left; }
+  .pillar { background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:20px; }
+  .pillar h3 { font-size:1rem; color:var(--navy); margin-bottom:6px; }
+  .pillar p { font-size:.92rem; margin:0; }
+
+  .examples { max-width:960px; margin:0 auto; padding:40px 24px 24px; }
+  .section-head { text-align:center; max-width:620px; margin:0 auto 32px; }
+  .section-head h2 { font-size:clamp(1.4rem,3vw,1.9rem); color:var(--navy); margin-bottom:8px; }
+  .section-head p { color:var(--muted); }
+  .ex-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .ex { background:var(--white); border:1px solid var(--line); border-top:3px solid var(--blue); border-radius:var(--radius); padding:22px; }
+  .ex .tag { font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--blue); margin-bottom:6px; }
+  .ex h3 { font-size:1.02rem; color:var(--navy); margin-bottom:8px; }
+  .ex p { font-size:.92rem; color:var(--muted); }
+  .ex .result { margin-top:10px; font-size:.85rem; color:var(--text); font-weight:600; }
+
+  .form-section { max-width:720px; margin:0 auto; padding:40px 24px 80px; }
+  .card { background:var(--white); border:1px solid var(--line); border-radius:14px; padding:40px; box-shadow:0 10px 30px rgba(11,31,58,.06); }
+  .card h2 { font-size:1.5rem; color:var(--navy); margin-bottom:6px; }
+  .card .sub { color:var(--muted); margin-bottom:28px; font-size:.97rem; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .field { margin-bottom:18px; }
+  label { display:block; font-size:.88rem; font-weight:600; margin-bottom:6px; color:var(--navy); }
+  label .req { color:var(--blue); }
+  input[type=text], input[type=email], input[type=tel], select, textarea { width:100%; font:inherit; font-size:.97rem; color:var(--text); background:var(--white); border:1px solid #cbd5e1; border-radius:8px; padding:12px 14px; transition:border-color .15s, box-shadow .15s; }
+  textarea { min-height:110px; resize:vertical; }
+  input:focus, select:focus, textarea:focus { outline:none; border-color:var(--blue); box-shadow:0 0 0 3px rgba(29,78,216,.15); }
+  .error-msg { display:none; color:#b91c1c; font-size:.82rem; margin-top:4px; }
+  .field.invalid input, .field.invalid select, .field.invalid textarea { border-color:#dc2626; }
+  .field.invalid .error-msg { display:block; }
+  .hp { position:absolute; left:-9999px; opacity:0; height:0; width:0; }
+
+  .consent { display:flex; gap:10px; align-items:flex-start; font-size:.85rem; color:var(--muted); margin-bottom:18px; }
+  .consent input { margin-top:4px; width:16px; height:16px; flex-shrink:0; accent-color:var(--blue); }
+  .consent label { font-weight:400; color:var(--muted); margin:0; }
+
+  button[type=submit] { width:100%; margin-top:4px; padding:15px 20px; font:inherit; font-size:1rem; font-weight:600; color:var(--white); background:linear-gradient(135deg,var(--blue),var(--blue-dark)); border:none; border-radius:8px; cursor:pointer; transition:transform .1s, box-shadow .2s, opacity .2s; box-shadow:0 6px 16px rgba(29,78,216,.28); }
+  button[type=submit]:hover { box-shadow:0 8px 22px rgba(29,78,216,.38); transform:translateY(-1px); }
+  button[type=submit]:disabled { opacity:.7; cursor:not-allowed; transform:none; }
+  .privacy { text-align:center; font-size:.8rem; color:var(--muted); margin-top:14px; }
+  .form-error { display:none; background:#fef2f2; border:1px solid #fecaca; color:#991b1b; padding:12px 14px; border-radius:8px; font-size:.9rem; margin-bottom:16px; }
+  .form-error.show { display:block; }
+
+  .success { display:none; text-align:center; padding:24px 8px; }
+  .success.show { display:block; animation:fade .4s ease; }
+  .check { width:64px; height:64px; margin:0 auto 20px; border-radius:50%; background:#dbeafe; color:var(--blue); display:flex; align-items:center; justify-content:center; font-size:2rem; font-weight:700; }
+  .success h2 { margin-bottom:10px; }
+  .success p { color:var(--muted); max-width:440px; margin:0 auto; }
+  @keyframes fade { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+
+  footer { text-align:center; padding:28px 24px; font-size:.85rem; color:var(--muted); border-top:1px solid var(--line); }
+
+  @media (max-width:860px) { .ex-grid { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:680px) {
+    .pillars, .ex-grid { grid-template-columns:1fr; }
+    .row { grid-template-columns:1fr; gap:0; }
+    .card { padding:26px 20px; }
+    .intro { padding-top:48px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">TMLE <span>Automations</span></div>
+    <div class="tagline">AI Automations for Nanaimo Small Businesses</div>
+  </div>
+</header>
+
+<main>
+  <section class="intro">
+    <h1>Less repetitive work. More time for what your team does best.</h1>
+    <p>We help local Nanaimo teams automate repetitive tasks with AI, from answering routine emails to quoting, scheduling and data entry.</p>
+    <p><strong>We empower your people, we don't replace them.</strong> Automation takes care of the busywork so your team can focus on customers and growth.</p>
+    <div class="pillars">
+      <div class="pillar"><h3>Save time</h3><p>Hand off the tasks that eat up hours every week.</p></div>
+      <div class="pillar"><h3>Built for your team</h3><p>Simple tools designed around how you already work.</p></div>
+      <div class="pillar"><h3>Local &amp; personal</h3><p>Based in Nanaimo, working side by side with local businesses.</p></div>
+    </div>
+  </section>
+
+  <section class="examples" id="examples">
+    <div class="section-head">
+      <h2>What could we automate for you?</h2>
+      <p>A few examples of how local businesses can put AI to work on everyday tasks.</p>
+    </div>
+    <div class="ex-grid">
+      <article class="ex"><div class="tag">Trades</div><h3>Quote requests &amp; follow-ups</h3><p>Electricians, plumbers and HVAC teams: new enquiries get a quick, professional reply, and unanswered quotes get a polite follow-up automatically.</p><div class="result">Fewer missed leads, faster responses.</div></article>
+      <article class="ex"><div class="tag">Scheduling</div><h3>Bookings &amp; reminders</h3><p>Appointments, site visits and service calls are confirmed and reminded by email or text, with no back-and-forth.</p><div class="result">Fewer no-shows, less phone tag.</div></article>
+      <article class="ex"><div class="tag">Catering &amp; Hospitality</div><h3>Orders &amp; menu enquiries</h3><p>Common questions about menus, pricing and availability are answered instantly, and event requests are organized into a clean summary for your team.</p><div class="result">Your staff focus on the food and guests.</div></article>
+      <article class="ex"><div class="tag">Admin</div><h3>Invoicing &amp; data entry</h3><p>Details from emails, forms and PDFs are pulled into your spreadsheets or accounting tool, and routine invoices are drafted for your review.</p><div class="result">Hours back every week.</div></article>
+      <article class="ex"><div class="tag">Customer care</div><h3>Reviews &amp; reputation</h3><p>Happy customers are asked for a review at the right moment, and new reviews get a drafted reply for you to approve.</p><div class="result">A stronger local reputation.</div></article>
+      <article class="ex"><div class="tag">Maintenance &amp; Services</div><h3>Recurring service reminders</h3><p>Roofing, elevators, climate control and other service businesses can remind clients when inspections or maintenance are due.</p><div class="result">Predictable, repeat business.</div></article>
+    </div>
+  </section>
+
+  <section class="form-section" id="contact">
+    <div class="card">
+      <div id="formWrap">
+        <h2>Get your free Automation Blueprint</h2>
+        <p class="sub">Tell us a bit about your business and we'll map out where automation can save you the most time.</p>
+
+        <div class="form-error" id="formError" role="alert">
+          Sorry, something went wrong while sending your request. Please try again or email us at automationstmle@gmail.com.
+        </div>
+
+        <form id="blueprintForm" novalidate>
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="row">
+            <div class="field">
+              <label for="fullName">Full Name <span class="req">*</span></label>
+              <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+              <div class="error-msg">Please enter your name.</div>
+            </div>
+            <div class="field">
+              <label for="company">Company Name <span class="req">*</span></label>
+              <input type="text" id="company" name="company" autocomplete="organization" required>
+              <div class="error-msg">Please enter your company name.</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <div class="error-msg">Please enter a valid email address.</div>
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(250) 555-0123" required>
+              <div class="error-msg">Please enter a valid phone number.</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="process">What process or task would you most like to automate? <span class="req">*</span></label>
+            <textarea id="process" name="process" placeholder="e.g. Replying to quote requests, scheduling appointments, invoicing, data entry…" required></textarea>
+            <div class="error-msg">Please tell us what you'd like to automate.</div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="employees">How many employees does your company have? <span class="req">*</span></label>
+              <select id="employees" name="employees" required>
+                <option value="" disabled selected>Select an option</option>
+                <option>1-5</option><option>6-15</option><option>16-30</option><option>31+</option>
+              </select>
+              <div class="error-msg">Please select an option.</div>
+            </div>
+            <div class="field">
+              <label for="budget">Estimated monthly budget for automation / software <span class="req">*</span></label>
+              <select id="budget" name="budget" required>
+                <option value="" disabled selected>Select an option</option>
+                <option>$200-$500/month</option><option>$500-$1000/month</option><option>$1000+/month</option><option>I'd prefer to discuss it</option>
+              </select>
+              <div class="error-msg">Please select an option.</div>
+            </div>
+          </div>
+
+          <div class="consent">
+            <input type="checkbox" id="consent" name="consent">
+            <label for="consent">I agree to receive emails from TMLE Automations about their services. I can unsubscribe at any time. (Optional)</label>
+          </div>
+
+          <button type="submit" id="submitBtn">Request My Free Automation Blueprint</button>
+          <p class="privacy">No obligation. We'll only use your details to contact you about your blueprint.</p>
+        </form>
+      </div>
+
+      <div class="success" id="successMsg" role="status" aria-live="polite">
+        <div class="check">&#10003;</div>
+        <h2>Thank you, <span id="successName"></span>!</h2>
+        <p>We've received your request. We'll review your answers and get back to you within one business day with your free Automation Blueprint. Check your inbox for a confirmation email.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; <span id="year"></span> TMLE Automations &middot; Nanaimo, British Columbia
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const ENDPOINT = '/.netlify/functions/submit';
+  const form = document.getElementById('blueprintForm');
+  const btn = document.getElementById('submitBtn');
+  const formError = document.getElementById('formError');
+  const BTN_TEXT = 'Request My Free Automation Blueprint';
+
+  const validators = {
+    email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v),
+    phone: v => v.replace(/\D/g, '').length >= 10
+  };
+
+  function validateField(el) {
+    const value = el.value.trim();
+    let ok = value !== '';
+    if (ok && validators[el.id]) ok = validators[el.id](value);
+    el.closest('.field').classList.toggle('invalid', !ok);
+    return ok;
+  }
+
+  const fields = () => [...form.querySelectorAll('.field input, .field select, .field textarea')];
+
+  fields().forEach(el => {
+    el.addEventListener('blur', () => validateField(el));
+    el.addEventListener('input', () => {
+      if (el.closest('.field').classList.contains('invalid')) validateField(el);
+    });
+  });
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    formError.classList.remove('show');
+
+    if (!fields().map(validateField).every(Boolean)) {
+      form.querySelector('.invalid input, .invalid select, .invalid textarea').focus();
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const payload = {
+      fullName: form.fullName.value.trim(),
+      company: form.company.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      process: form.process.value.trim(),
+      employees: form.employees.value,
+      budget: form.budget.value,
+      consent: form.consent.checked,
+      website: form.website.value // honeypot
+    };
+
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('Request failed');
+
+      document.getElementById('successName').textContent = payload.fullName.split(' ')[0];
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('successMsg').classList.add('show');
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (err) {
+      formError.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = BTN_TEXT;
+    }
+  });
+</script>
+</body>
+</html>
